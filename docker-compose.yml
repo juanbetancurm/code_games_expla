@@ -1,0 +1,29 @@
+services:
+  codegames:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: codegames-web:latest
+    container_name: codegames-web
+    restart: unless-stopped
+    # The shared nginx proxy on the VPS reaches this container as
+    # `codegames-web:80` through the external `web` network.
+    expose:
+      - "80"
+    networks:
+      - web
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  web:
+    external: true

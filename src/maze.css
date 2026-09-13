@@ -1,0 +1,111 @@
+/* Maze lesson overrides. Loaded by MazeLesson.jsx after styles.css/react.css. */
+
+/* ---------- Program blocks ----------
+   .command-block keeps its clipped notch shape; the badge (.exec-dot) and the
+   highlight live on the unclipped .command-exec / .command-shape wrappers. */
+.maze-lesson .exec-dot{width:28px;height:28px;font-size:13px}
+.maze-lesson .command-exec{position:relative;width:max-content}
+.maze-lesson .command-exec>.exec-dot{top:10px;left:-40px}
+.maze-lesson .command-exec .command-block{height:48px;min-width:246px;font-size:17px;clip-path:polygon(0 8px,16px 8px,22px 1px,38px 1px,44px 8px,100% 8px,100% 41px,44px 41px,38px 48px,22px 48px,16px 41px,0 41px)}
+.maze-lesson .command-exec--nested .command-block{min-width:222px}
+.maze-lesson .block-stack>.command-exec+.command-exec,.maze-lesson .command-exec--nested+.command-exec--nested{margin-top:-10px}
+.maze-lesson .block-stack>.control-block+.command-exec,.maze-lesson .block-stack>.command-exec+.control-block{margin-top:-4px}
+.maze-lesson .command-exec--nested>.exec-dot{left:auto;right:-26px;top:12px;width:24px;height:24px}
+.maze-lesson .command-exec--nested:not(.is-done):not(.is-skipped):not(.is-failed)>.exec-dot{visibility:hidden}
+
+.maze-lesson .command-exec.is-active{filter:none;transform:translateX(7px)}
+.maze-lesson .command-exec.is-active>.command-shape{filter:drop-shadow(2px 0 0 #ffd232) drop-shadow(-2px 0 0 #ffd232) drop-shadow(0 2px 0 #ffd232) drop-shadow(0 -2px 0 #ffd232) drop-shadow(0 0 10px rgba(255,200,40,.95))}
+.maze-lesson .control-block.is-active{outline:4px solid #ffd232;outline-offset:3px}
+.maze-lesson .command-exec.is-failed>.command-shape{filter:drop-shadow(2px 0 0 #e5483a) drop-shadow(-2px 0 0 #e5483a) drop-shadow(0 2px 0 #e5483a) drop-shadow(0 -2px 0 #e5483a)}
+.maze-lesson .exec-block.is-failed>.exec-dot{background:#e5483a;color:#fff;border-color:#b8362b;font-size:0}
+.maze-lesson .exec-block.is-failed>.exec-dot::after{content:"×";font-size:17px}
+.maze-lesson .exec-block.is-not-run{opacity:.42;filter:grayscale(.7)}
+.maze-lesson .exec-block.is-not-run>.exec-dot{font-size:0}
+.maze-lesson .exec-block.is-not-run>.exec-dot::after{content:"–";font-size:15px}
+
+/* C-shaped if / repeat block: coloured top bar, left spine and bottom arm, with
+   the statement slot open to the right like Blockly. */
+.maze-lesson .control-block{width:300px;padding:14px 0 0 14px}
+.maze-lesson .control-block::after{content:none}
+.maze-lesson .control-block>.exec-dot{top:12px;left:-40px}
+.maze-lesson .control-title{display:flex;align-items:center;gap:4px;padding-right:14px;font-size:19px}
+.maze-lesson .control-mouth{display:grid;grid-template-columns:34px 1fr;align-items:start;margin-top:8px}
+.maze-lesson .control-do{margin:15px 0 0;font-size:16px}
+.maze-lesson .control-slot{min-height:56px;padding:4px 0 4px 8px;border-radius:10px 0 0 10px;background:#f9f9f9;box-shadow:inset 3px 0 0 rgba(0,0,0,.08)}
+.maze-lesson .control-foot{height:16px}
+.maze-lesson .goal-chip{display:inline-grid;place-items:center;width:30px;height:32px;margin-left:6px;border-radius:6px;background:rgba(255,255,255,.9)}
+.maze-lesson .goal-chip .goal-pin-svg{width:16px;height:24px}
+/* Reserve room on the left for the step badges so narrow cards never clip them. */
+.maze-lesson .block-stack{padding-left:40px}
+@media(max-width:1050px){.maze-lesson .control-block{width:268px}.maze-lesson .command-exec .command-block{min-width:214px}.maze-lesson .command-exec--nested .command-block{min-width:192px}}
+
+/* ---------- Tile board ----------
+   The stage is a size container; the board keeps the 6 × 4 tile ratio so
+   every tile is square and percentages map exactly onto tiles. */
+.maze-lesson .maze-card{grid-template-rows:54px minmax(0,1fr) 62px}
+.maze-lesson .maze-stage{position:relative;min-height:0;margin:10px 14px 0;container-type:size;display:grid;place-items:center}
+.maze-lesson .maze-board{--tile:calc(100% / 6);position:relative;margin:0;width:min(100cqw,100cqh * 6 / 4);height:min(100cqh,100cqw * 4 / 6);border:1px solid #d9d4c7;border-radius:12px;overflow:hidden;background:#f1eee6;background-image:none}
+.maze-lesson .maze-board::after{content:none}
+.maze-tiles{position:absolute;inset:0;width:100%;height:100%}
+.maze-tiles line{stroke:#dcd7cb;stroke-width:.018}
+.tile-path-edge,.tile-path-fill,.tile-path-dashes{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tile-path-edge{stroke:#d6c300;stroke-width:.64}
+.tile-path-fill{stroke:#ffe600;stroke-width:.56}
+.tile-path-dashes{stroke:#fff;stroke-width:.05;stroke-dasharray:.14 .2}
+
+.maze-lesson .start-tile{position:absolute;z-index:2;left:calc(var(--x) * 1%);top:calc(var(--y) * 1%);width:calc(var(--tile) * .92);aspect-ratio:1;transform:translate(-50%,-50%);border:3px dashed rgba(52,127,46,.55);border-radius:14%}
+.maze-lesson .start-tile b{position:absolute;left:50%;bottom:3px;translate:-50% 0;padding:2px 5px;border-radius:5px;background:#347f2e;color:#fff;font-size:10px;letter-spacing:.06em}
+.maze-lesson .goal-marker{position:absolute;z-index:4;left:calc(var(--x) * 1%);top:calc(var(--y) * 1%);width:calc(var(--tile) * .36);transform:translate(-50%,-100%);filter:drop-shadow(0 3px 3px rgba(0,0,0,.2))}
+.maze-lesson .goal-marker .goal-pin-svg{display:block;width:100%;height:auto}
+.maze-lesson .is-celebrating .goal-marker{animation:goalGlow .55s ease 2}
+.maze-lesson .grid-mark{z-index:3;left:calc((var(--x) + 5.5) * 1%);top:calc((var(--y) + 8) * 1%);width:30px;height:30px;transform:translate(-50%,-50%);font-size:15px;border:2px solid #cfc9d2}
+
+/* ---------- Pegman ---------- */
+.maze-lesson .player{z-index:6;width:calc(var(--tile) * 1.12);height:auto;aspect-ratio:1;transform:translate(-50%,-82%);perspective:none;transition:left .72s cubic-bezier(.3,.7,.3,1),top .72s cubic-bezier(.3,.7,.3,1)}
+.maze-lesson .is-bumping .player,.maze-lesson .is-celebrating .player{animation:none}
+.player-motion,.pegman-svg{display:block;width:100%;height:100%}
+.pegman-svg{overflow:visible}
+.pegman-cast-shadow{fill:rgba(45,40,50,.16)}
+.pegman-ground-arrow{fill:#5fb84c;stroke:#2f7a28;stroke-width:2.6}
+.pegman-outline{stroke:#2d2929;stroke-width:1.8}
+.pegman-chest{fill:#ffe48a}
+.pegman-eye{fill:#2d2929}
+.player.is-bumping .player-motion{animation:pegmanBump .64s ease-in-out}
+.player.is-celebrating .player-motion{animation:pegmanHop .4s ease 3}
+.bump-mark{position:absolute;z-index:9;left:calc(50% + var(--bump-x) * 46% + var(--bump-side) * 34%);top:calc(82% + var(--bump-y) * 46%);display:grid;place-items:center;width:30px;height:30px;translate:-50% -50%;border:3px solid #fff;border-radius:50%;background:#e5483a;color:#fff;font-size:18px;font-weight:900;box-shadow:0 3px 8px rgba(0,0,0,.25);animation:pop .45s ease both}
+@keyframes pegmanBump{0%,50%,100%{translate:0 0}25%,75%{translate:calc(var(--bump-x) * 22%) calc(var(--bump-y) * 22%)}}
+@keyframes pegmanHop{50%{translate:0 -12%}}
+
+/* ---------- Turn cue and path check ---------- */
+.turn-cue,.look-waves{position:absolute;z-index:5;left:calc(var(--x) * 1%);top:calc(var(--y) * 1%);width:calc(var(--tile) * 1.9);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none}
+.turn-cue{width:calc(var(--tile) * 2.3)}
+.turn-cue svg,.look-waves svg{display:block;width:100%;height:100%;overflow:visible}
+.turn-cue__arc{fill:none;stroke:#5b3fb8;stroke-width:.09;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:turnCueDraw .55s .25s ease-out forwards}
+.turn-cue__head{fill:#5b3fb8;opacity:0;animation:turnCueHead .15s .75s forwards}
+.turn-cue b{position:absolute;left:50%;top:-18px;translate:-50% 0;padding:4px 8px;border-radius:7px;background:#5b3fb8;color:#fff;font-size:12px;letter-spacing:.05em;white-space:nowrap}
+@keyframes turnCueDraw{to{stroke-dashoffset:0}}
+@keyframes turnCueHead{to{opacity:1}}
+.look-waves svg{rotate:var(--angle)}
+.look-waves path{fill:none;stroke:#2d2929;stroke-width:.07;stroke-linecap:round;opacity:0;animation:lookWave .9s ease-in-out infinite}
+.look-waves path:nth-child(2){animation-delay:.15s}.look-waves path:nth-child(3){animation-delay:.3s}
+@keyframes lookWave{30%,60%{opacity:.85}}
+.look-tile{position:absolute;z-index:5;left:calc(var(--x) * 1%);top:calc(var(--y) * 1%);width:calc(var(--tile) * .82);aspect-ratio:1;transform:translate(-50%,-50%);border:4px solid #77717b;border-radius:16%;background:rgba(255,255,255,.35)}
+.look-tile span{position:absolute;right:-14px;top:-14px;display:grid;place-items:center;width:30px;height:30px;border:3px solid #fff;border-radius:50%;background:#77717b;color:#fff;font-size:17px;font-weight:900;line-height:1;box-shadow:0 3px 8px rgba(0,0,0,.2)}
+.look-tile b{position:absolute;left:50%;top:calc(100% + 6px);translate:-50% 0;padding:4px 8px;border-radius:7px;background:#332f38;color:#fff;font-size:11px;letter-spacing:.06em;white-space:nowrap}
+.look-tile.is-checking{animation:pathQuestionPulse .8s ease-in-out infinite alternate}
+.look-tile.has-path{border-color:#348b4a;background:rgba(111,208,120,.3)}.look-tile.has-path span,.look-tile.has-path b{background:#2f8b48}
+.look-tile.no-path{border-color:#db574a;background:rgba(239,101,87,.18)}.look-tile.no-path span,.look-tile.no-path b{background:#c33b2f}
+
+.maze-lesson .condition-badge,.maze-lesson .loop-counter{font-size:15px}
+.maze-lesson .maze-feedback{font-size:20px;line-height:1.2}
+.maze-lesson .maze-feedback--with-switch{font-size:16px;gap:10px}
+.maze-lesson .path-switch button{font-size:13px;white-space:nowrap}
+
+@media(max-width:900px){.maze-lesson .maze-card{grid-template-rows:54px minmax(0,1fr) auto}.maze-lesson .maze-feedback{padding:10px 14px}}
+
+@media(prefers-reduced-motion:reduce){
+  .maze-lesson .player{transition-duration:.12s}
+  .player.is-bumping .player-motion,.player.is-celebrating .player-motion,.look-waves path,.look-tile.is-checking{animation:none}
+  .look-waves path{opacity:.8}
+  .turn-cue__arc{animation:none;stroke-dashoffset:0}.turn-cue__head{animation:none;opacity:1}
+}

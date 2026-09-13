@@ -1,0 +1,9 @@
+node_modules/
+dist/
+mejoras/
+planning/
+imas/
+prompt.txt
+url.txt
+vps-snapshot-*.md
+.env

@@ -1,0 +1,109 @@
+#root{min-height:100vh}.maze-lesson .player::after{display:none}.route-dashes{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-dasharray:10 18;vector-effect:non-scaling-stroke}.exec-block.is-skipped{opacity:.34;filter:grayscale(.5)}.exec-block.is-skipped>.exec-dot{background:#ef6557;color:#fff;border-color:#c4473b;font-size:0}.exec-block.is-skipped>.exec-dot::after{content:"×";font-size:15px}
+
+.site-mark--button{border:1px solid rgba(63,57,80,.1);cursor:pointer}.site-mark--button b{padding-left:8px;border-left:1px solid #dcd8df;color:#766f7d;font-size:10px}.site-mark--button:hover{box-shadow:0 7px 20px rgba(40,31,59,.12)}
+.program-card--react{grid-template-rows:54px 1fr 91px;position:relative}.program-card--react .program-workspace{min-height:0}.program-card--react:has(.mode-switch) .program-workspace{padding-top:52px}.program-card--react .mode-switch{margin-top:61px}.program-card--react .block-stack>.control-block+.command-block{margin-top:-5px}
+.step-controls{height:auto!important;min-height:91px;display:flex;flex-direction:column;gap:6px;padding:8px 12px!important}.step-readout{font-size:10px;font-weight:900;letter-spacing:.12em;color:#77717b}.step-readout strong{color:#312c35}.step-control-buttons{display:flex;align-items:center;justify-content:center;gap:6px;width:100%}.step-control-buttons button{height:39px;border:0;border-radius:9px;cursor:pointer;font-size:11px;font-weight:900;transition:transform .16s ease,box-shadow .16s ease,opacity .16s ease}.step-control-buttons button:disabled{cursor:not-allowed;opacity:.38}.icon-step-button{width:39px;background:#ece9ee;color:#4e4854;font-size:18px!important}.next-step-button{min-width:119px;padding:0 13px;background:#ef503e;color:#fff;box-shadow:0 4px 0 #bd3427}.next-step-button span{font-size:19px;margin-left:5px}.play-step-button{min-width:86px;padding:0 9px;background:#332e39;color:#fff}.play-step-button.is-playing{background:#e29b22}.step-control-buttons button:not(:disabled):hover{transform:translateY(-1px)}
+
+.landing-page{position:relative;min-height:100svh;overflow:hidden;padding:clamp(48px,8vh,90px) clamp(24px,7vw,110px);background:#f1edf8;color:var(--ink);display:grid;grid-template-columns:minmax(350px,.78fr) minmax(520px,1.22fr);gap:clamp(45px,8vw,130px);align-items:center}.landing-page::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(82,72,98,.13) 1px,transparent 1px);background-size:26px 26px;mask-image:linear-gradient(90deg,transparent 12%,#000 50%,transparent 92%);opacity:.42}.landing-orb{position:absolute;border-radius:50%;filter:blur(1px);pointer-events:none}.landing-orb--one{width:540px;height:540px;left:-280px;top:-230px;background:rgba(255,255,255,.75)}.landing-orb--two{width:420px;height:420px;right:-240px;bottom:-210px;border:78px solid rgba(255,255,255,.56)}.landing-heading,.lesson-picker,.landing-footer{position:relative;z-index:2}.landing-heading p{margin:0 0 20px;font-size:12px;font-weight:900;letter-spacing:.16em;color:#716a7c}.landing-heading h1{font-size:clamp(56px,7vw,104px);line-height:.86;letter-spacing:-.07em}.landing-heading>span{display:block;margin-top:30px;font-size:19px;color:#625d68}.lesson-picker{display:flex;flex-direction:column;gap:14px}.lesson-choice{position:relative;width:100%;min-height:137px;border:1px solid rgba(55,47,67,.1);border-radius:22px;background:rgba(255,255,255,.91);box-shadow:0 16px 40px rgba(45,35,61,.1);display:grid;grid-template-columns:43px 72px 1fr auto 34px;align-items:center;gap:17px;padding:20px;text-align:left;color:var(--ink);cursor:pointer;transition:transform .22s ease,box-shadow .22s ease}.lesson-choice:hover{transform:translateX(-8px);box-shadow:0 22px 52px rgba(45,35,61,.16)}.lesson-choice__number{align-self:start;font-size:11px;font-weight:900;color:#8a8490}.lesson-choice__icon{display:grid;place-items:center;width:66px;height:66px;border-radius:20px;color:#fff;font-size:40px;font-weight:900}.lesson-choice--purple .lesson-choice__icon{background:var(--purple)}.lesson-choice--blue .lesson-choice__icon{background:var(--blue)}.lesson-choice--green .lesson-choice__icon{background:var(--green)}.lesson-choice__content{display:flex;flex-direction:column;gap:5px}.lesson-choice__content strong{font-size:30px;letter-spacing:-.035em}.lesson-choice__content small{font-size:14px;color:#6b6570}.lesson-choice__status{padding:6px 9px;border-radius:999px;background:#eeeaf0;color:#6d6672;font-size:10px;font-weight:900;text-transform:uppercase;white-space:nowrap}.lesson-choice__arrow{font-size:25px}.landing-footer{position:absolute;left:clamp(24px,7vw,110px);bottom:28px;font-size:10px;font-weight:900;letter-spacing:.22em;color:#817a8b}
+
+.placeholder-page{min-height:100svh;display:grid;place-items:center;position:relative;overflow:hidden;padding:80px 24px;background:#e8eff9}.placeholder-page--green{background:#e8f5e4}.placeholder-page::before{content:"";position:absolute;width:500px;height:500px;border-radius:50%;border:90px solid rgba(255,255,255,.5);right:-230px;bottom:-260px}.back-home{position:absolute;z-index:2;left:24px;top:24px;border:1px solid rgba(52,47,60,.12);border-radius:999px;background:#fff;padding:10px 15px;color:#49434e;font-weight:900;cursor:pointer}.placeholder-card{position:relative;z-index:1;width:min(690px,92vw);padding:65px;text-align:center;border:1px solid rgba(52,47,60,.09);border-radius:30px;background:rgba(255,255,255,.9);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;gap:14px}.placeholder-symbol{display:grid;place-items:center;width:90px;height:90px;border-radius:26px;background:var(--blue);color:#fff;font-size:54px}.placeholder-page--green .placeholder-symbol{background:var(--green)}.placeholder-card p{margin:0;font-size:11px;font-weight:900;letter-spacing:.16em;color:#716a77}.placeholder-card h1{margin:4px 0;font-size:clamp(60px,8vw,98px)}.placeholder-card>strong{font-size:21px}.placeholder-card>span:not(.placeholder-symbol){max-width:480px;color:#69636d;line-height:1.5}.placeholder-card a{margin-top:14px;color:#fff;background:#332e39;text-decoration:none;padding:12px 18px;border-radius:10px;font-weight:900}
+
+@media(max-width:1050px) and (min-width:901px){.step-control-buttons{gap:4px}.icon-step-button{width:34px}.next-step-button{min-width:102px;padding:0 8px}.play-step-button{min-width:75px}.program-card--react .command-block{min-width:220px}.program-card--react .control-block{width:270px}.lesson-choice{grid-template-columns:36px 60px 1fr 30px}.lesson-choice__status{display:none}.lesson-choice__icon{width:58px;height:58px}}
+@media(max-width:900px){.landing-page{grid-template-columns:1fr;padding-top:90px;padding-bottom:80px}.landing-heading h1{font-size:62px}.landing-heading>span{margin-top:18px}.lesson-choice{min-height:112px;grid-template-columns:32px 56px 1fr 28px;padding:15px;gap:12px}.lesson-choice__icon{width:54px;height:54px}.lesson-choice__content strong{font-size:25px}.lesson-choice__status{display:none}.program-card--react{min-height:455px}.placeholder-card{padding:45px 25px}}
+@media(max-width:540px){.lesson-choice__content small{font-size:12px}.lesson-choice{grid-template-columns:24px 48px 1fr 20px}.lesson-choice__icon{width:46px;height:46px;border-radius:14px;font-size:30px}.step-control-buttons{flex-wrap:wrap}.next-step-button{flex:1}.play-step-button{flex:1}}
+
+/* Every maze object uses the same coordinate as its visual center. The route
+   endpoint, start marker, goal marker, and character can therefore coincide. */
+.maze-lesson .route{z-index:1}
+.maze-lesson .start-pad,
+.maze-lesson .goal-pin,
+.maze-lesson .player{left:calc(var(--x)*1%);top:calc(var(--y)*1%);transform:translate(-50%,-50%)}
+.maze-lesson .start-pad{z-index:2;width:54px;height:54px;border:4px solid #357f2e;border-radius:50%;background:rgba(97,188,77,.26);box-shadow:0 0 0 5px rgba(255,255,255,.74),0 4px 10px rgba(35,91,35,.18)}
+.maze-lesson .start-pad::after{content:"START";position:absolute;left:50%;top:calc(100% + 8px);translate:-50% 0;padding:3px 7px;border-radius:6px;background:#347f2e;color:#fff;font-size:9px;font-weight:900;letter-spacing:.08em}
+.maze-lesson .goal-pin{z-index:4;width:28px;height:36px;transform:translate(-50%,-80%);border:3px solid #252229;border-radius:50% 50% 50% 8px;rotate:-45deg;background:#ff655a;box-shadow:0 5px 12px rgba(0,0,0,.18)}
+.maze-lesson .goal-pin i{width:8px;height:8px;left:7px;top:7px;border:0;background:#28252c}
+.maze-lesson .goal-pin::after{content:none}
+.maze-lesson .is-celebrating .goal-pin{animation:goalGlow .55s ease 2}
+@keyframes goalGlow{50%{filter:brightness(1.15) drop-shadow(0 0 12px rgba(239,91,78,.85))}}
+.maze-lesson .player{z-index:6;width:52px;height:55px}
+.maze-lesson .player-shadow{z-index:8;width:42px;height:18px;left:5px;top:-37px;bottom:auto;border:3px solid #fff;background:#44339b;filter:drop-shadow(0 0 1px #241b62) drop-shadow(2px 3px 3px rgba(36,27,98,.3));transition:transform .55s cubic-bezier(.32,.72,.18,1);will-change:transform}
+
+/* The avatar changes pose at mid-turn. This small perspective sway gives depth
+   without flipping, flattening, fading, or rotating the whole sprite in 2D. */
+.maze-lesson .pegman{backface-visibility:visible}
+.maze-lesson .pegman-head::before,.maze-lesson .pegman-head::after{display:none}
+.maze-lesson .pegman-body,.maze-lesson .pegman-head{transition:left .32s ease,top .32s ease,width .32s ease,height .32s ease,transform .32s ease,background .32s ease}
+.maze-lesson .player[data-facing="east"] .pegman-body{left:18px;width:14px;transform:skewY(-4deg);background:linear-gradient(90deg,#d87900,#ffc928 64%,#ffe072)}
+.maze-lesson .player[data-facing="east"] .pegman-head{left:23px;width:16px;height:17px}
+.maze-lesson .player[data-facing="west"] .pegman-body{left:20px;width:14px;transform:skewY(4deg);background:linear-gradient(90deg,#ffe072,#ffc928 36%,#d87900)}
+.maze-lesson .player[data-facing="west"] .pegman-head{left:13px;width:16px;height:17px}
+.maze-lesson .player[data-facing="north"] .pegman-body{left:16px;top:16px;width:20px;transform:none;background:linear-gradient(90deg,#ca7000,#eb9808 48%,#c66b00)}
+.maze-lesson .player[data-facing="north"] .pegman-head{left:18px;top:2px;width:17px;height:16px;background:radial-gradient(circle at 50% 70%,#e49211,#c96f00 74%)}
+.maze-lesson .player[data-facing="south"] .pegman-body{left:16px;top:17px;width:20px;transform:none;background:linear-gradient(90deg,#e88b00,#ffce32 48%,#df7b00)}
+.maze-lesson .player[data-facing="south"] .pegman-head{left:18px;top:5px;width:17px;height:17px;background:radial-gradient(circle at 50% 25%,#ffe36a,#ffc52e 56%,#e98b09)}
+.maze-lesson .player[data-turning="left"] .pegman-head,
+.maze-lesson .player[data-turning="right"] .pegman-head{filter:brightness(1.04);transition:filter .2s ease}
+
+/* A labelled turn cue is clearer than an unexplained circular line. */
+.maze-lesson .turn-guide{z-index:5;width:auto;height:auto;border:0;border-radius:0;opacity:1;transform:none;translate:-50% -50%;pointer-events:none}
+.maze-lesson .turn-guide::after{display:none}
+.maze-lesson .turn-guide span{position:absolute;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.9);border:2px solid #6a6370;color:#514a58;font-size:43px;line-height:1;box-shadow:0 5px 13px rgba(50,44,57,.14)}
+.maze-lesson .turn-guide--left span{left:-82px;top:-80px}
+.maze-lesson .turn-guide--right span{left:24px;top:-80px}
+.maze-lesson .turn-guide b{position:absolute;right:auto;top:auto;bottom:47px;left:50%;translate:-50% 0;padding:5px 8px;border-radius:7px;background:#514a58;color:#fff;font-size:10px;letter-spacing:.06em;white-space:nowrap}
+
+/* Stage 6 checks one concrete square to the avatar's left. */
+.path-question{display:none;position:absolute;z-index:5;left:calc(var(--x)*1%);top:calc(var(--y)*1%);width:54px;height:54px;transform:translate(-50%,-50%);border:4px solid #77717b;border-radius:50%;background:rgba(255,255,255,.64);box-shadow:0 0 0 7px rgba(255,255,255,.34)}
+.path-question.is-scanning{display:grid;place-items:center;animation:pathQuestionPulse .8s ease-in-out infinite alternate}
+.path-question.has-path{border-color:#348b4a;background:rgba(111,208,120,.35)}
+.path-question.no-path{border-color:#db574a;background:rgba(239,101,87,.2)}
+.path-question span{font-size:31px;font-weight:900;color:#332f38}
+.path-question b{position:absolute;left:50%;bottom:calc(100% + 7px);translate:-50% 0;padding:5px 8px;border-radius:7px;background:#332f38;color:#fff;font-size:10px;letter-spacing:.07em;white-space:nowrap}
+@keyframes pathQuestionPulse{to{scale:1.13;box-shadow:0 0 0 10px rgba(255,255,255,.5)}}
+
+/* The until condition is intentionally prominent for classroom projection. */
+.maze-lesson .goal-check{right:18px;top:18px;min-width:150px;padding:11px 14px;border:3px solid #d8d3dc;border-radius:15px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;font-size:15px;box-shadow:0 7px 20px rgba(0,0,0,.16)}
+.maze-lesson .goal-check span{line-height:1.1}
+.maze-lesson .goal-check strong{display:grid;place-items:center;min-width:53px;height:42px;margin:0;border-radius:10px;background:#eeeaf0;font-size:23px}
+.maze-lesson .goal-check.is-no{border-color:#ef8a80}.maze-lesson .goal-check.is-no strong{background:#ef6557;color:#fff}
+.maze-lesson .goal-check.is-yes{border-color:#78bd88}.maze-lesson .goal-check.is-yes strong{background:#42a85b;color:#fff}
+
+/* Execution controls: projector-sized text, progress pips, keyboard hints. */
+.step-controls{gap:7px}
+.step-readout{display:flex;align-items:center;justify-content:center;gap:10px;font-size:13px;letter-spacing:.04em;color:#6f6975}
+.step-readout strong{font-size:14px}
+.step-readout .is-complete{color:#2f8b48}.step-readout .is-stopped{color:#c33b2f}
+.step-pips{display:inline-flex;gap:4px}
+.step-pips i{width:8px;height:8px;border-radius:50%;background:#dcd7df}
+.step-pips i.is-done{background:#41a45a}
+.step-pips i.is-running{background:#ffc928;box-shadow:0 0 0 3px rgba(255,201,40,.3)}
+.step-control-buttons button{height:42px;font-size:14px}
+.icon-step-button{width:42px;font-size:20px!important}
+.next-step-button{min-width:140px}
+.play-step-button{min-width:108px}
+.program-workspace--roomy .block-stack{transform:scale(1.25)}
+.site-mark--button b{font-size:12px}
+@media(max-width:1050px){.step-control-buttons button{font-size:13px}.icon-step-button{width:38px}.next-step-button{min-width:112px;padding:0 10px}.play-step-button{min-width:90px}}
+
+/* Progress rail buttons (scroll without changing the route hash). */
+.progress-rail button{display:grid;place-items:center;width:32px;height:32px;padding:0;border:0;border-radius:50%;background:transparent;color:#67616f;cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease}
+.progress-rail button span{font-size:14px;font-weight:900}
+.progress-rail button:hover:not(.is-current){background:rgba(44,39,53,.08)}
+.progress-rail button.is-current{background:#2c2735;color:#fff;box-shadow:0 6px 18px rgba(44,39,53,.25);transform:scale(1.12)}
+.progress-rail button:focus-visible,.step-control-buttons button:focus-visible{outline:3px solid #7650b4;outline-offset:2px}
+
+/* Headings: keep titles on one line on common projector widths. */
+.lesson-heading h2{font-size:clamp(30px,3.2vw,50px)}
+.lesson-idea{max-width:360px}
+
+/* Landing page SVG icons. */
+.lesson-choice__icon svg{width:46px;height:46px}
+
+/* Phones: the site mark and compass launcher scroll away instead of covering content. */
+@media(max-width:900px){
+  .site-mark{position:absolute}
+  .compass-launcher{position:absolute}
+  .bird-lesson .simulation:first-of-type,.turtle-lesson .simulation:first-of-type{padding-top:118px}
+  .maze-feedback--with-switch{flex-wrap:wrap;justify-content:center}
+}
+@media(max-width:540px){.lesson-choice__icon svg{width:34px;height:34px}}
