@@ -1,6 +1,7 @@
 import { simulations } from "../data/simulations.jsx";
 import { birdSimulations } from "../data/birdSimulations.jsx";
 import { turtleSimulations } from "../data/turtleSimulations.jsx";
+import { movieSimulations } from "../data/movieSimulations.jsx";
 
 function MazeIcon() {
   return (
@@ -37,10 +38,23 @@ function TurtleIcon() {
   );
 }
 
+function MovieIcon() {
+  return (
+    <svg viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="29" cy="11" r="5.5" fill="#ffe51a" stroke="#fff" strokeWidth="1.5" />
+      <path d="M6 21 L17 13 L28 21" fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+      <rect x="9" y="21" width="16" height="11" fill="#fff" />
+      <rect x="15" y="25" width="4" height="7" fill="#e8892c" />
+      <path d="M3 33 H37" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 const lessons = [
   { id: "maze", number: "01", title: "Maze", description: "Sequences, turns, decisions, and loops", accent: "purple", Icon: MazeIcon, count: simulations.length },
   { id: "bird", number: "02", title: "Bird", description: "Headings, conditions, coordinates, and logic", accent: "blue", Icon: BirdIcon, count: birdSimulations.length },
   { id: "turtle", number: "03", title: "Turtle", description: "Drawing, repetition, and geometry", accent: "green", Icon: TurtleIcon, count: turtleSimulations.length },
+  { id: "movie", number: "04", title: "Movie", description: "Shapes, coordinates, colours, and time", accent: "orange", Icon: MovieIcon, count: movieSimulations.length },
 ];
 
 export function LandingPage({ navigate }) {

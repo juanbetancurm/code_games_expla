@@ -1,0 +1,104 @@
+.movie-simulation{--movie-accent:#c9702a;--movie-page:#fbf0e4;background:var(--movie-page)}
+.movie-theme-sky{--movie-accent:#3f82b8;--movie-page:#e8f3fb}.movie-theme-gold{--movie-accent:#a77b21;--movie-page:#fbf3dd}.movie-theme-mint{--movie-accent:#3d9682;--movie-page:#e5f4ef}.movie-theme-coral{--movie-accent:#c56657;--movie-page:#f8eae6}.movie-theme-violet{--movie-accent:#7650b4;--movie-page:#f0ebfa}.movie-theme-blue{--movie-accent:#4777a7;--movie-page:#e9f0f8}.movie-theme-green{--movie-accent:#4d9b60;--movie-page:#e9f5e9}.movie-theme-orange{--movie-accent:#c9702a;--movie-page:#fbf0e4}
+.movie-simulation .lesson-number{color:var(--movie-accent)}
+.movie-site-blocks i{background:#e0892f}.movie-site-blocks i:nth-child(2){background:#5ba58c}.movie-site-blocks i:nth-child(3){background:#a5745b}
+
+/* Canvas card: square 0–100 canvas with rulers and a status panel beside it. */
+.movie-card{display:grid;grid-template-rows:54px minmax(0,1fr) 58px;min-width:0;overflow:hidden;border:1px solid rgba(47,45,54,.09);border-radius:24px;background:#fff;box-shadow:var(--shadow)}
+.movie-card--timeline{grid-template-rows:54px minmax(0,1fr) 46px 58px}
+.movie-card .maze-topline{display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid #ece9ee}
+.movie-card .maze-feedback{font-size:19px;line-height:1.2}
+.movie-stage{--panel:150px;position:relative;min-height:0;margin:10px 14px 0;container-type:size;display:grid;grid-template-columns:minmax(0,1fr) var(--panel);gap:12px;align-items:center}
+.movie-canvas{position:relative;justify-self:center;width:min(100cqh,100cqw - var(--panel) - 12px);height:min(100cqh,100cqw - var(--panel) - 12px);border:1px solid #cfcac1;background:#fff;cursor:crosshair;touch-action:none}
+.movie-canvas svg{display:block;width:100%;height:100%;overflow:hidden}
+.movie-shape.is-new{animation:movieShapeIn .8s ease-out both}
+@keyframes movieShapeIn{0%{opacity:0}35%{opacity:1;filter:drop-shadow(0 0 1.2px #ffb400) drop-shadow(0 0 1.2px #ffb400)}100%{opacity:1;filter:none}}
+.movie-rulers line{stroke:#c9c4b8;stroke-width:.35}
+.movie-rulers text{font-size:3.3px;font-weight:700;fill:#a39d90;paint-order:stroke;stroke:#fff;stroke-width:.8px;stroke-linejoin:round}
+
+/* Guides for the shape the last step added or changed. */
+.movie-guide{pointer-events:none;animation:movieFadeIn .35s ease-out both}
+.movie-guide .guide-halo{stroke:#fff;stroke-width:1.5;opacity:.9}
+.movie-guide .guide-line{stroke:#2c2735;stroke-width:.55}
+.movie-guide .guide-dot{fill:#e8453c;stroke:#fff;stroke-width:.6}
+.movie-guide text{font-size:3.5px;font-weight:900;fill:#2c2735;text-anchor:middle;paint-order:stroke;stroke:#fff;stroke-width:1.2px;stroke-linejoin:round}
+.movie-guide text[text-anchor="start"]{text-anchor:start}.movie-guide text[text-anchor="end"]{text-anchor:end}
+@keyframes movieFadeIn{from{opacity:0}to{opacity:1}}
+.movie-readout{position:absolute;right:6px;top:5px;padding:2px 7px;border-radius:5px;background:rgba(255,255,255,.9);color:#2c2735;font-size:14px;font-weight:800;white-space:pre;pointer-events:none}
+.movie-readout.is-idle{color:#9a94a0;font-size:11px;font-weight:700}
+
+.movie-panel{display:flex;flex-direction:column;gap:8px;min-width:0;max-height:100%;overflow:hidden}
+.movie-chip{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:7px 10px;border:1px solid #d8d5dc;border-radius:9px;background:#fff;color:#68616c;font-size:12px;font-weight:900;letter-spacing:.05em;box-shadow:0 3px 8px rgba(0,0,0,.06)}
+.movie-chip strong{color:#2f2a35;font-size:16px;letter-spacing:0}
+.movie-chip i{width:26px;height:20px;border:2px solid #fff;border-radius:5px;box-shadow:0 0 0 1px #8b8590}
+.movie-chip--time strong{min-width:42px;padding:2px 7px;border-radius:6px;background:#b8577f;color:#fff;text-align:center}
+.movie-tip{margin:0;padding:8px 10px;border-radius:9px;background:rgba(255,255,255,.7);border:1px dashed #cfc9d3;color:#4f4955;font-size:13px;font-weight:800;line-height:1.3}
+.movie-frames{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.movie-frames small{grid-column:1/-1;font-size:10px;font-weight:900;letter-spacing:.1em;color:#77717b}
+.movie-frame{display:flex;flex-direction:column;align-items:center;gap:1px;padding:2px;border:1px solid #d8d5dc;border-radius:6px;background:#fff;color:#5f5965;font:inherit;font-size:10px;font-weight:800;cursor:pointer}
+.movie-frame svg{display:block;width:100%;aspect-ratio:1;border:1px solid #ebe8e2}
+.movie-frame.is-current{border-color:#b8577f;box-shadow:0 0 0 2px rgba(184,87,127,.25)}
+.movie-frame:focus-visible,.movie-play:focus-visible,.movie-variant-switch button:focus-visible,.movie-turn-actions :focus-visible{outline:3px solid #7650b4;outline-offset:2px}
+
+.movie-timeline{display:flex;align-items:center;gap:10px;margin:6px 14px 0;padding:0 10px;border:1px solid #d6d2da;border-radius:10px;background:#f4f2f5}
+.movie-play{display:grid;place-items:center;width:36px;height:30px;border:0;border-radius:7px;background:#332e39;color:#fff;font-size:14px;cursor:pointer}
+.movie-play.is-playing{background:#e29b22}
+.movie-timeline input[type=range]{flex:1;min-width:0;height:22px;accent-color:#e8453c;cursor:pointer}
+.movie-timeline output{min-width:86px;color:#2c2735;font-size:15px;font-weight:800;text-align:right}
+.movie-card.is-celebrating .movie-canvas{animation:movieCelebrate .6s ease 2}
+@keyframes movieCelebrate{50%{box-shadow:0 0 0 5px rgba(255,201,40,.55)}}
+
+/* Program card: Blockly Games Movie blocks, one row per block. */
+.movie-program-card{grid-template-rows:54px minmax(0,1fr) 91px}
+.movie-program-card--variants{grid-template-rows:54px auto minmax(0,1fr) 91px}
+.movie-toolbox{padding:4px 8px;border-radius:6px;background:#e9e6eb;color:#6a6570;font-size:10px;letter-spacing:.1em}
+.movie-variant-switch{display:flex;justify-content:center;gap:4px;margin:8px auto 0;padding:4px;border-radius:10px;background:#e8e5e9}
+.movie-variant-switch button{padding:7px 12px;border:0;border-radius:7px;background:transparent;color:#68616c;font-size:13px;font-weight:900;cursor:pointer}
+.movie-variant-switch button.is-selected{background:#fff;color:#2f2a32;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.movie-variant-switch button:disabled{cursor:not-allowed;opacity:.6}
+.movie-program-workspace{position:relative;display:flex;flex-direction:column;min-height:0;padding:14px 16px;overflow:auto;background:#efeff0;background-image:none}
+.movie-program-stack{display:flex;flex-direction:column;align-items:flex-start;margin:auto;padding:4px 10px;filter:drop-shadow(0 5px 6px rgba(44,55,55,.13))}
+.movie-empty{margin:0;padding:18px 22px;border:2px dashed #cbc6cf;border-radius:12px;color:#7a7480;font-size:15px;font-weight:800}
+.movie-block{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;min-height:34px;padding:5px 10px 6px;border-radius:7px 5px 5px 7px;color:#fff;font-size:14px;font-weight:900;text-shadow:0 1px rgba(0,0,0,.18);transition:transform .18s ease,filter .18s ease}
+.movie-block::before{content:"";position:absolute;left:14px;top:-5px;width:22px;height:7px;border-radius:6px 6px 0 0;background:inherit}
+.movie-program-stack>.movie-block+.movie-block{margin-top:-1px}
+.movie-block--circle,.movie-block--rect,.movie-block--line{background:linear-gradient(135deg,#62ab91,#4f967d);box-shadow:inset 0 -3px 0 rgba(31,94,72,.3)}
+.movie-block--colour{background:linear-gradient(135deg,#b2826a,#9b6d56);box-shadow:inset 0 -3px 0 rgba(94,55,38,.3)}
+.movie-block__title{margin-right:2px}
+.movie-block__field{display:inline-flex;align-items:center;gap:4px}
+.movie-block__label{font-weight:800}
+.movie-input{display:inline-flex;align-items:center;gap:3px;padding:2px;border-radius:6px;background:rgba(213,216,238,.55)}
+.movie-number{display:inline-block;min-width:24px;padding:1px 6px;border-radius:9px;background:#fff;color:#2b2830;font-size:13px;text-align:center;text-shadow:none}
+.movie-time-block{padding:2px 7px;border-radius:5px;background:linear-gradient(135deg,#bd5d86,#a44a72);color:#fff;font-size:12.5px}
+.movie-time-value{padding:1px 6px;border-radius:5px;background:#fff4c2;color:#6b4d00;font-size:12px;text-shadow:none}
+.movie-swatch{display:inline-block;width:30px;height:18px;border:2px solid rgba(255,255,255,.9);border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.movie-colour-name{font-size:12px;opacity:.92}
+.movie-block.is-active{z-index:5;outline:3px solid #ffd632;filter:drop-shadow(0 0 8px #ffd632);transform:translateX(7px)}
+.movie-block.is-arriving{outline:3px dashed #ffd632;animation:movieBlockArrive .55s ease-out both}
+@keyframes movieBlockArrive{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:translateX(7px)}}
+.movie-block.is-focus{outline:2px solid #ffd632;outline-offset:1px}
+.movie-input.is-changed{outline:2px solid #ffd632;animation:movieInputPulse .9s ease-out 2}
+@keyframes movieInputPulse{50%{outline-offset:3px;outline-color:#ff9f1c}}
+
+/* Your-turn card: checklist, one-at-a-time hints and the Blockly Games link. */
+.movie-turn-card{grid-template-rows:54px minmax(0,1fr) auto}
+.movie-turn-body{min-height:0;overflow:auto;padding:12px 24px;background:#fbfaf8}
+.movie-turn-body h3{margin:6px 0 8px;color:#6a6570;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.movie-turn-body h3 small{margin-left:6px;color:#8a8490;font-size:11px;letter-spacing:0;text-transform:none}
+.movie-checklist{display:grid;gap:7px;margin:0 0 12px;padding:0;list-style:none}
+.movie-checklist li{display:flex;align-items:center;gap:10px;color:#2f2a35;font-size:17px;font-weight:800}
+.movie-checklist li::before{content:"";flex:none;width:18px;height:18px;border:2px solid #8b8590;border-radius:5px;background:#fff}
+.movie-hint-empty{margin:0;color:#7a7480;font-size:14px;font-weight:700}
+.movie-hints{display:grid;gap:6px;margin:0;padding-left:22px;color:#3b3640;font-size:16px}
+.movie-hints li{padding:6px 10px;border-radius:8px;background:#fff4c9;animation:movieFadeIn .3s ease-out both}
+.movie-turn-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;padding:10px 12px;border-top:1px solid #eeebf0;background:#fff}
+.movie-turn-actions button,.movie-turn-actions a{display:inline-flex;align-items:center;min-height:42px;padding:0 14px;border:0;border-radius:9px;font-size:14px;font-weight:900;text-decoration:none;cursor:pointer}
+.movie-turn-actions button{background:#ffc928;color:#3a2e00}
+.movie-turn-actions button.is-quiet{background:#ece9ee;color:#4e4854}
+.movie-turn-actions button:disabled{cursor:default;opacity:.5}
+.movie-turn-actions a{background:#ef503e;color:#fff;box-shadow:0 4px 0 #bd3427}
+
+/* Older 1024 px projectors: compact blocks so each stays on one row. */
+@media(max-width:1050px) and (min-width:901px){.movie-stage{--panel:128px}.movie-chip{padding:6px 8px;font-size:11px}.movie-chip strong{font-size:14px}.movie-tip{font-size:12px}.movie-program-workspace{padding:12px 6px}.movie-program-stack{padding:4px}.movie-block{gap:3px 4px;padding:4px 7px 5px;font-size:12px}.movie-block__field{gap:3px}.movie-input{padding:1px}.movie-number{min-width:19px;padding:1px 4px;font-size:12px}.movie-time-block{padding:2px 5px;font-size:11px}.movie-time-value{padding:1px 4px;font-size:11px}.movie-colour-name{font-size:11px}.movie-swatch{width:24px;height:16px}}
+@media(max-width:900px){.movie-card{min-height:600px}.movie-stage{--panel:0px;grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto;gap:8px}.movie-canvas{width:min(100cqw,100cqh - 118px);height:min(100cqw,100cqh - 118px)}.movie-panel{flex-direction:row;flex-wrap:wrap;gap:6px}.movie-frames{flex:1 1 100%;grid-template-columns:repeat(5,1fr)}.movie-tip{flex:1 1 100%}.movie-program-card,.movie-turn-card{min-height:470px}}
+@media(prefers-reduced-motion:reduce){.movie-shape.is-new,.movie-guide,.movie-block.is-arriving,.movie-input.is-changed,.movie-hints li,.movie-card.is-celebrating .movie-canvas{animation:none}.movie-block{transition-duration:.12s}}

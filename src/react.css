@@ -107,3 +107,8 @@
   .maze-feedback--with-switch{flex-wrap:wrap;justify-content:center}
 }
 @media(max-width:540px){.lesson-choice__icon svg{width:34px;height:34px}}
+
+/* Landing page: four lessons still fit one projector screen. */
+.lesson-picker{gap:12px}
+.lesson-choice{min-height:116px;padding-top:16px;padding-bottom:16px}
+.lesson-choice--orange .lesson-choice__icon{background:#e8892c}
